@@ -1,5 +1,3 @@
 import './styles/styles.css';
 import './styles/reset.css';
-import {getWetherApi} from './api.js';
-
-getWetherApi();
+import {} from './get_api.js';
