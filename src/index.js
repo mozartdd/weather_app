@@ -1,3 +1,4 @@
 import './styles/styles.css';
 import './styles/reset.css';
-import {} from './get_api.js';
+import './scripts/api.js';
+import './scripts/ui.js';
