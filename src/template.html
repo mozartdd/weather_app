@@ -6,13 +6,26 @@
   <title>Weather app</title>
 </head>
 <body>
-  <form novalidate>
-    <label for="location">Location</label>
-    <input type="text" name="weather_location" id="location">
-    <button>Go</button>
-  </form>
-  <div id="temp-div">
-
-  </div>
+  <header>
+    <form novalidate>
+      <div id="input-div">
+        <input type="text" name="weather_location" data-location-input id="location" placeholder="Search for city or area">
+        <button data-search-btn>Go</button>
+      </div>
+      <div id="radio-div">
+        <label for="faranheit">F</label>
+        <input type="radio" name="temp" value="f" id="faranheit">
+        <label for="celsius">C</label>
+        <input type="radio" name="temp" value="c" id="celsius" checked>
+      </div>
+    </form>
+  </header>
+  <main>
+    <div id="main-panel">
+      <div id="panel-header" data-panel-header>
+        <p><span></span></p>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

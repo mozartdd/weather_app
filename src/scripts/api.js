@@ -8,10 +8,12 @@ export async function getWeatherApi(location) {
 // Formats wether api promise data in to readable obj
 export async function formatWeatherData(apiData) {
   const data = await apiData;
+  console.log(apiData);
   const dataObj = {
     location: data.address,
-    tempF: data.currentConditions.temp,
-    tempC: Math.ceil((data.currentConditions.temp - 32) * 5 / 9),
+    tempF: data.currentConditions.temp + 'F',
+    tempC: Math.ceil((data.currentConditions.temp - 32) * 5 / 9) + 'C',
+    windspeed: Math.ceil(data.currentConditions.windspeed * 1.60934) + ' Km/h',
     conditions: data.currentConditions.conditions,
     desc: data.description
   }

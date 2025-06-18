@@ -1,11 +1,17 @@
 import { formatWeatherData, getWeatherApi } from "./api";
 
-const userInput = document.querySelector('input');
-const btn = document.querySelector('button');
+const domElements = {
+  userInput: document.querySelector('[data-location-input]'),
+  searchBtn: document.querySelector('[data-search-btn]'),
+  panelHeader: document.querySelector('[data-panel-header] p'),
+}
 
 // Receives data as promise obj and displays it on screen trough DOM elements
 async function displayData(stored) {
-  console.log(stored.location);
+  for (const [key, value] of Object.entries(stored)) {
+    console.log(`${key}: ${value}`);
+  }
+  domElements.panelHeader.textContent = stored.location;
 }
 
 async function apiChain(input) {
@@ -15,20 +21,20 @@ async function apiChain(input) {
     const display = await displayData(stored);
     return display;
   } catch(err) {
-    if (userInput.value === '') {
+    if (domElements.userInput.value === '') {
       alert('Location\'s name can\'t be empty string.');
       return err;
     }
     while (err) {
-      userInput.value = '';
       alert('Please write valid name of geographical location.');
       break;
     } 
   }
 }
 
-btn.addEventListener('click', (event) => {
+domElements.searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
-  apiChain(userInput.value);
+  apiChain(domElements.userInput.value);
+  domElements.userInput.value = '';
 })
-apiChain('London');
+apiChain('Cleethorpes');
