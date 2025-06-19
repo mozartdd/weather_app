@@ -15,7 +15,9 @@ export async function formatWeatherData(apiData) {
     tempC: Math.ceil((data.currentConditions.temp - 32) * 5 / 9) + 'C',
     windspeed: Math.ceil(data.currentConditions.windspeed * 1.60934) + ' Km/h',
     conditions: data.currentConditions.conditions,
-    desc: data.description
+    desc: data.description,
+    resolvedAddress: data.resolvedAddress,
+    timeZone: data.timezone
   }
   return dataObj;
 }

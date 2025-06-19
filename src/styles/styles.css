@@ -1,5 +1,19 @@
+* {
+  border: 1px solid red;
+}
+body {
+  min-width: 600px;
+  max-width: 45vw;
+  margin: auto;
+
+}
 form {
   display: flex;
   justify-content: center;
   gap: 3rem;
+}
+
+#panel-header {
+  display: flex;
+  justify-content: space-between;
 }

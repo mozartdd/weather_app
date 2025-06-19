@@ -1,40 +1,17 @@
-import { formatWeatherData, getWeatherApi } from "./api";
+import moment from 'moment-timezone';
 
-const domElements = {
-  userInput: document.querySelector('[data-location-input]'),
-  searchBtn: document.querySelector('[data-search-btn]'),
-  panelHeader: document.querySelector('[data-panel-header] p'),
+const domContainers = {
+  // Panel dom elements
+  panelLocation: document.querySelector('[data-panel-location]'),
+  panelTime: document.querySelector('[data-panel-time]'),
 }
 
 // Receives data as promise obj and displays it on screen trough DOM elements
-async function displayData(stored) {
+export async function displayData(stored) {
+  let isCelsius = true;
   for (const [key, value] of Object.entries(stored)) {
     console.log(`${key}: ${value}`);
   }
-  domElements.panelHeader.textContent = stored.location;
+  domContainers.panelLocation.textContent = stored.resolvedAddress;
+  domContainers.panelTime.textContent = moment().tz(stored.timeZone).format('MMMM Do, h:mm a');
 }
-
-async function apiChain(input) {
-  try {
-    const data = await getWeatherApi(input);
-    const stored = await formatWeatherData(data);
-    const display = await displayData(stored);
-    return display;
-  } catch(err) {
-    if (domElements.userInput.value === '') {
-      alert('Location\'s name can\'t be empty string.');
-      return err;
-    }
-    while (err) {
-      alert('Please write valid name of geographical location.');
-      break;
-    } 
-  }
-}
-
-domElements.searchBtn.addEventListener('click', (event) => {
-  event.preventDefault();
-  apiChain(domElements.userInput.value);
-  domElements.userInput.value = '';
-})
-apiChain('Cleethorpes');
