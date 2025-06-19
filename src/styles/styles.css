@@ -17,3 +17,6 @@ form {
   display: flex;
   justify-content: space-between;
 }
+#temp-today {
+  max-width: 20%;
+}

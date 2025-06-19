@@ -24,6 +24,8 @@ async function apiChain(input) {
   }
 }
 
+// Todo: add function to change isCelsius status with dropdown menu div
+
 domControls.searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
   apiChain(domControls.userInput.value);

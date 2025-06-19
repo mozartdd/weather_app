@@ -1,6 +1,6 @@
 export async function getWeatherApi(location) {
   //* Fetches weather api from visual crossing web server
-  const resolved = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=DUX8WLQUANH4ZKTHFG32ZK63L`);
+  const resolved = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=DUX8WLQUANH4ZKTHFG32ZK63L&lang=id`);
   const resolvedData = await resolved.json();
   return resolvedData;
 }
@@ -13,7 +13,7 @@ export async function formatWeatherData(apiData) {
     location: data.address,
     tempF: data.currentConditions.temp + 'F',
     tempC: Math.ceil((data.currentConditions.temp - 32) * 5 / 9) + 'C',
-    windspeed: Math.ceil(data.currentConditions.windspeed * 1.60934) + ' Km/h',
+    windSpeed: Math.ceil(data.currentConditions.windSpeed * 1.60934) + ' Km/h',
     conditions: data.currentConditions.conditions,
     desc: data.description,
     resolvedAddress: data.resolvedAddress,
