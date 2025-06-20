@@ -1,11 +1,29 @@
 * {
   border: 1px solid red;
 }
+
+.hidden {
+  display: none;
+}
 body {
+  height: 100vh;
   min-width: 600px;
   max-width: 45vw;
-  margin: auto;
 
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  flex: .15;
+}
+header #temp-choice {
+  display: flex;
+  gap: .15rem;
+}
+header #temp-choice p:hover {
+  background-color: red;
+  cursor: pointer;
 }
 form {
   display: flex;
@@ -19,4 +37,8 @@ form {
 }
 #temp-today {
   max-width: 20%;
+}
+.future-container {
+  display: flex;
+  justify-content: space-between;
 }
