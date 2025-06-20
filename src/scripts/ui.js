@@ -14,7 +14,7 @@ const dynamicDom = {
   currentTemp: document.querySelector('[data-current-temp]'),
   tempBtn: document.querySelectorAll('[data-temp-btn]'),
   futureTemp: document.querySelectorAll('[data-future-temp]'),
-  futureDay: document.querySelectorAll('[data-week-day]')
+  futureDay: document.querySelectorAll('[data-week-day]'),
 }
 // Todo: Download svg icons for each type
 // const weatherIcons = {
