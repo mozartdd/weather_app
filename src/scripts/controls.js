@@ -13,7 +13,6 @@ async function apiChain(input) {
     renderCurrentConditions(stored);
     renderFutureConditions(stored);
   } catch(err) {
-    alert('Please write valid name of geographical location.');
     console.error(err);
   }
 }

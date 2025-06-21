@@ -1,21 +1,19 @@
-* {
-  border: 1px solid red;
-}
-
 .hidden {
   display: none;
 }
 body {
   height: 100vh;
-  min-width: 600px;
-  max-width: 45vw;
-
   margin: auto;
   display: flex;
   flex-direction: column;
 }
+
 header {
-  flex: .15;
+  flex: .08;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header #temp-choice {
   display: flex;
@@ -25,10 +23,42 @@ header #temp-choice p:hover {
   background-color: red;
   cursor: pointer;
 }
-form {
+header form {
   display: flex;
   justify-content: center;
   gap: 3rem;
+}
+#input-div input {
+  height: 2.5rem;
+  border-radius: 2rem;
+  width: clamp(500px, 30vw, 45vw);
+  margin-left: 100px;
+}
+#input-div input:valid {
+  background-color: white;
+}
+#input-div #search-btn {
+  transform: translate(-55px);
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+#input-div #search-btn:hover {
+  transform: scale(1.1) translate(-50px);
+  transition: .2s;
+}
+
+
+main {
+  width: clamp(500px, 30vw, 45vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#main-panel {
+  border: 2px solid;
 }
 
 #panel-header {
@@ -37,6 +67,9 @@ form {
 }
 #temp-today {
   max-width: 20%;
+}
+#future-main-container {
+  border: 2px solid black;
 }
 .future-container {
   display: flex;
