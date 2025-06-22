@@ -8,6 +8,7 @@ body {
   flex-direction: column;
 }
 
+/* HEADER WEATHER STYLE */
 header {
   flex: .08;
   background-color: lightblue;
@@ -27,6 +28,7 @@ header form {
   display: flex;
   justify-content: center;
   gap: 3rem;
+  margin: 1rem;
 }
 #input-div input {
   height: 2.5rem;
@@ -48,7 +50,7 @@ header form {
   transition: .2s;
 }
 
-
+/* TODAYS WEATHER STYLE */
 main {
   width: clamp(500px, 30vw, 45vw);
   margin: 0 auto;
@@ -58,6 +60,7 @@ main {
 }
 
 #main-panel {
+  font-size: 1.3rem;
   border: 2px solid;
 }
 
@@ -68,10 +71,18 @@ main {
 #temp-today {
   max-width: 20%;
 }
+#current-time {
+  text-align: end;
+}
+
+/* FUTURE WEATHER STYLE */
 #future-main-container {
   border: 2px solid black;
+  font-size: 1.2rem;
 }
 .future-container {
+  height: 3rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }

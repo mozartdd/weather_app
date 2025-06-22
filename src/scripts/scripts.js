@@ -9,11 +9,8 @@ export async function formatWeatherData(apiData) {
   const data = apiData;
   // Obj which stores data that will be displayed on screen
   const dataObj = {
-    location: data.address,
     tempF: data.currentConditions.temp,
     tempC: fahrenheitToCelsius(data.currentConditions.temp),
-    metricWind: Math.ceil(data.currentConditions.windspeed * 1.60934) + ' km/ph',
-    imperialWind: data.currentConditions.windspeed + ' m/ph',
     conditions: data.currentConditions.conditions,
     desc: data.description,
     resolvedAddress: data.resolvedAddress,
