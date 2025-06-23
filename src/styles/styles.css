@@ -8,6 +8,11 @@ body {
   flex-direction: column;
 }
 
+#wait-gif {
+  display: inline-block;
+  margin: 0 auto;
+}
+
 /* HEADER WEATHER STYLE */
 header {
   flex: .08;
@@ -16,29 +21,22 @@ header {
   justify-content: center;
   align-items: center;
 }
-header #temp-choice {
-  display: flex;
-  gap: .15rem;
-}
 header #temp-choice p:hover {
-  background-color: red;
+  border-bottom: 2px solid;
   cursor: pointer;
 }
 header form {
   display: flex;
   justify-content: center;
-  gap: 3rem;
   margin: 1rem;
 }
 #input-div input {
   height: 2.5rem;
   border-radius: 2rem;
   width: clamp(500px, 30vw, 45vw);
-  margin-left: 100px;
+  margin-left: 60px;
 }
-#input-div input:valid {
-  background-color: white;
-}
+
 #input-div #search-btn {
   transform: translate(-55px);
   background-color: white;
@@ -70,6 +68,9 @@ main {
 }
 #temp-today {
   max-width: 20%;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
 }
 #current-time {
   text-align: end;
@@ -85,4 +86,9 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.connector {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
 }

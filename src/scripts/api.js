@@ -1,3 +1,5 @@
+import * as controlModule from './controls.js';
+
 export async function getWeatherApi(location) {
   const resolved = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=DUX8WLQUANH4ZKTHFG32ZK63L&lang=id`);
   const resolvedData = await resolved.json();
@@ -10,7 +12,7 @@ export async function formatWeatherData(apiData) {
   // Obj which stores data that will be displayed on screen
   const dataObj = {
     tempF: data.currentConditions.temp,
-    tempC: fahrenheitToCelsius(data.currentConditions.temp),
+    tempC: controlModule.fahrenheitToCelsius(data.currentConditions.temp),
     conditions: data.currentConditions.conditions,
     desc: data.description,
     resolvedAddress: data.resolvedAddress,
@@ -20,6 +22,15 @@ export async function formatWeatherData(apiData) {
   return dataObj;
 }
 
-export function fahrenheitToCelsius(f) {
-  return Math.round((f - 32) * 5 / 9);
+export async function apiChain(input) {
+  try {
+    const data = await getWeatherApi(input);
+    const stored = await formatWeatherData(data);
+    controlModule.renderCurrentConditions(stored);
+    controlModule.renderFutureConditions(stored);
+  } catch(err) {
+    console.error(err);
+  }
 }
+
+apiChain('London')
