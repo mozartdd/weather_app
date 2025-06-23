@@ -8,24 +8,24 @@
 <body>
   <header>
     <form novalidate>
+      <p id="error-container" data-error>Error: enter valid location</p>
       <div id="input-div">
         <input type="text" name="weather_location" data-location-input id="location" placeholder="Search for city or area">
         <button data-search-btn id="search-btn">🔍</button>
       </div>
-      <div id="temp-choice" data-temp-choice>
-        <p data-temp-btn>°C</p>
-        <p data-temp-btn class="hidden">°F</p>
-      </div>
+      <p class="temp-btn" data-temp-btn>°C</p>
+      <p class="temp-btn hidden" data-temp-btn>°F</p>
     </form>
   </header>
+  <img data-loading-icon src="assets/loading.svg" alt="three bouncing dots represent loading icon" width="30%" style="margin: auto; display: none;">
   <main>
     <div id="main-panel">
       <div id="panel-header" data-panel-header>
         <p data-panel-location></p><p id="current-time" data-panel-time></p>
       </div>
       <div id="temp-today">
-        <img width="55px" data-weather-symbol>
-        <p data-current-temp>
+        <p data-current-temp></p>
+        <img width="105px" data-weather-symbol>
         </p>
       </div>
     </div>
@@ -34,49 +34,49 @@
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
       <div class="future-container">
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
       <div class="future-container">
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
       <div class="future-container">
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
       <div class="future-container">
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
       <div class="future-container">
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
       <div class="future-container">
         <p class="day" data-week-day></p>
         <div class="connector">
           <p class="temp" data-future-temp></p>
-          <img class="symbol" data-future-symbol width="45">
+          <img class="symbol" data-future-symbol width="85">
         </div>
       </div>
     </div>

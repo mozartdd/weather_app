@@ -7,7 +7,7 @@ export async function getWeatherApi(location) {
 }
 
 // Formats wether api promise data in to obj
-export async function formatWeatherData(apiData) {
+export function formatWeatherData(apiData) {
   const data = apiData;
   // Obj which stores data that will be displayed on screen
   const dataObj = {
@@ -23,14 +23,24 @@ export async function formatWeatherData(apiData) {
 }
 
 export async function apiChain(input) {
+  const errorContainer = document.querySelector('[data-error]');
+  const body = document.querySelector('main');
+  const loadingIcon = document.querySelector('[data-loading-icon]');
+  errorContainer.style.display = 'none';
+  body.style.display = 'none';
+  loadingIcon.style.display = 'block';
   try {
     const data = await getWeatherApi(input);
-    const stored = await formatWeatherData(data);
+    errorContainer.style.display = 'none';
+    const stored = formatWeatherData(data);
     controlModule.renderCurrentConditions(stored);
     controlModule.renderFutureConditions(stored);
   } catch(err) {
+    errorContainer.style.display = 'block';
     console.error(err);
   }
+  loadingIcon.style.display = 'none';
+  body.style.display = 'flex';
 }
 
-apiChain('Paris')
+apiChain('London')

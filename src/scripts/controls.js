@@ -32,7 +32,7 @@ const weatherIcons = [
 // Sets the correct weather icon based on condition type and daytime
 // Initially set time to 10 so future days display's daytime forecast
 function setWeatherIcon(type, element, time = 10) {
-  let isDay = time > 4 & time < 21 ? 0 : 1;
+  let isDay = time > 4 && time < 21 ? 0 : 1;
 
   switch(type) {
     case 'type_21':
@@ -88,7 +88,7 @@ domControls.tempBtn.forEach((btn) => {
 });
 
 // Render current weather data in UI
-export async function renderCurrentConditions(stored) {
+export function renderCurrentConditions(stored) {
   dynamicDom.currentLocation.textContent = stored.resolvedAddress;
   // Displays current date and time
   dynamicDom.currentTime.textContent = moment()
@@ -106,7 +106,7 @@ export async function renderCurrentConditions(stored) {
 }
 
 // Render 7-day weather forecast in UI
-export async function renderFutureConditions(stored) {
+export function renderFutureConditions(stored) {
   const DAYS_IN_WEEK = 7;
 
   domControls.tempBtn.forEach((btn) => {
@@ -117,7 +117,7 @@ export async function renderFutureConditions(stored) {
       const weatherType = dayData.conditions.split(',')[0];
 
       setWeatherIcon(weatherType, dynamicDom.futureSymbol[i]);
-      dynamicDom.futureDay[i].textContent = i === 0 ? 'Tomorrow' : moment(dayData.datetime).format('dddd');
+      dynamicDom.futureDay[i].textContent = i === 0 ? 'Today' : moment(dayData.datetime).format('dddd');
 
       displayCorrectTempUnit(
         fahrenheitToCelsius(dayData.temp),
