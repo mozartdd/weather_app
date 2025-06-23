@@ -11,10 +11,10 @@ export async function formatWeatherData(apiData) {
   const data = apiData;
   // Obj which stores data that will be displayed on screen
   const dataObj = {
+    currentHrs: +data.currentConditions.datetime.split(':')[0],
     tempF: data.currentConditions.temp,
     tempC: controlModule.fahrenheitToCelsius(data.currentConditions.temp),
     conditions: data.currentConditions.conditions,
-    desc: data.description,
     resolvedAddress: data.resolvedAddress,
     timeZone: data.timezone,
     futureDays: data.days
@@ -33,4 +33,4 @@ export async function apiChain(input) {
   }
 }
 
-apiChain('London')
+apiChain('Paris')

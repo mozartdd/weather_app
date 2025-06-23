@@ -6,31 +6,46 @@ import cloudy from '../assets/weather-icons/design/fill/final/cloudy.svg';
 import rain from '../assets/weather-icons/design/fill/final/extreme-day-rain.svg';
 import snow from '../assets/weather-icons/design/fill/final/overcast-day-snow.svg';
 
+import clearNight from '../assets/weather-icons/design/fill/final/starry-night.svg';
+import cloudyNight from '../assets/weather-icons/design/fill/final/partly-cloudy-night.svg';
+import rainNight from '../assets/weather-icons/design/fill/final/overcast-night-rain.svg';
+import snowNight from '../assets/weather-icons/design/fill/final/partly-cloudy-night-snow.svg';
+
 let isCelsius = true;
-// TODO: Add daytime condition to select correct icon variant (day/night)
 
-// Weather icon mapping based on condition types
-const dayObj = {
-  type_21: rain,
-  type_31: snow,
-  type_41: cloudy,
-  type_43: clearDay,
-}
+const weatherIcons = [
+  {
+    type_21: rain,
+    type_31: snow,
+    type_41: cloudy,
+    type_43: clearDay,
+  },
+  // Night time icons
+  {
+    type_21: rainNight,
+    type_31: snowNight,
+    type_41: cloudyNight,
+    type_43: clearNight,
+  }
+]
 
-// Sets the correct weather icon based on condition type
-function setWeatherIcon(type, element) {
+// Sets the correct weather icon based on condition type and daytime
+// Initially set time to 10 so future days display's daytime forecast
+function setWeatherIcon(type, element, time = 10) {
+  let isDay = time > 4 & time < 21 ? 0 : 1;
+
   switch(type) {
     case 'type_21':
-      element.src = dayObj.type_21;
+      element.src = weatherIcons[isDay].type_21;
       break;
     case 'type_31':
-      element.src = dayObj.type_31;
+      element.src = weatherIcons[isDay].type_31;
       break;
     case 'type_41':
-      element.src = dayObj.type_41;
+      element.src = weatherIcons[isDay].type_41;
       break;
     default:
-      element.src = dayObj.type_43;
+      element.src = weatherIcons[isDay].type_43;
   }
 }
 
@@ -80,7 +95,7 @@ export async function renderCurrentConditions(stored) {
   .tz(stored.timeZone)
   .format('MMMM Do, h:mm a');
   displayCorrectTempUnit(stored.tempC, stored.tempF, dynamicDom.currentTemp);
-  setWeatherIcon(stored.conditions, dynamicDom.currentIcon);
+  setWeatherIcon(stored.conditions, dynamicDom.currentIcon, stored.currentHrs);
 
     // Update temperature when unit toggle is clicked
   domControls.tempBtn.forEach((btn) => {
