@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather app</title>
+<script defer src="main.js"></script></head>
+<body>
+  <header>
+    <form novalidate>
+      <p id="error-container" data-error>Error: enter valid location</p>
+      <div id="input-div">
+        <input type="text" name="weather_location" data-location-input id="location" placeholder="Search for city or area">
+        <button data-search-btn id="search-btn">🔍</button>
+      </div>
+      <p class="temp-btn" data-temp-btn>°C</p>
+      <p class="temp-btn hidden" data-temp-btn>°F</p>
+    </form>
+  </header>
+  <img data-loading-icon src="268c9fadad0a5e1abdbf.svg" alt="three bouncing dots represent loading icon" width="30%" style="margin: auto; display: none;">
+  <main>
+    <div id="main-panel">
+      <div id="panel-header" data-panel-header>
+        <p data-panel-location></p><p id="current-time" data-panel-time></p>
+      </div>
+      <div id="temp-today">
+        <p data-current-temp></p>
+        <img width="105px" data-weather-symbol>
+        </p>
+      </div>
+    </div>
+    <div id="future-main-container">
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+      <div class="future-container">
+        <p class="day" data-week-day></p>
+        <div class="connector">
+          <p class="temp" data-future-temp></p>
+          <img class="symbol" data-future-symbol width="85">
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
