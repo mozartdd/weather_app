@@ -12,6 +12,8 @@ export function formatWeatherData(apiData) {
   // Obj which stores data that will be displayed on screen
   const dataObj = {
     currentHrs: +data.currentConditions.datetime.split(':')[0],
+    windSpeedF: data.currentConditions.windspeed,
+    windSpeedC: Math.floor(data.currentConditions.windspeed * 1.60934),
     tempF: data.currentConditions.temp,
     tempC: controlModule.fahrenheitToCelsius(data.currentConditions.temp),
     conditions: data.currentConditions.conditions,
@@ -19,6 +21,7 @@ export function formatWeatherData(apiData) {
     timeZone: data.timezone,
     futureDays: data.days
   }
+  console.log(apiData);
   return dataObj;
 }
 

@@ -112,12 +112,22 @@ main {
   justify-content: space-between;
   gap: 2rem;
 }
+
+#wind {
+  font-size: 2rem;
+}
 #temp-today {
   display: flex;
   /* gap: 2rem; */
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
   font-size: 2.5rem;
+}
+#temp-today div:nth-child(2) {
+  margin-left: 150px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 #current-time {
   text-align: end;

@@ -57,6 +57,9 @@ export function fahrenheitToCelsius(f) {
 function displayCorrectTempUnit(c , f, element) {
   element.textContent = isCelsius ? c + '°C' : f + '°F';
 }
+function displayCorrectWind(c , f, element) {
+  element.textContent = isCelsius ? c + ' km/h' : f + ' m/h';
+}
 
 // DOM references for current and future weather data
 const dynamicDom = {
@@ -64,6 +67,7 @@ const dynamicDom = {
   currentTime: document.querySelector('[data-panel-time]'),
   currentTemp: document.querySelector('[data-current-temp]'),
   currentIcon: document.querySelector('[data-weather-symbol]'),
+  wind: document.querySelector('[data-wind]'),
 
   futureTemp: document.querySelectorAll('[data-future-temp]'),
   futureDay: document.querySelectorAll('[data-week-day]'),
@@ -94,12 +98,14 @@ export function renderCurrentConditions(stored) {
   dynamicDom.currentTime.textContent = moment()
   .tz(stored.timeZone)
   .format('MMMM Do, h:mm a');
+  displayCorrectWind(stored.windSpeedC, stored.windSpeedF, dynamicDom.wind);
   displayCorrectTempUnit(stored.tempC, stored.tempF, dynamicDom.currentTemp);
   setWeatherIcon(stored.conditions, dynamicDom.currentIcon, stored.currentHrs);
 
     // Update temperature when unit toggle is clicked
   domControls.tempBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
+      displayCorrectWind(stored.windSpeedC, stored.windSpeedF, dynamicDom.wind);
       displayCorrectTempUnit(stored.tempC, stored.tempF, dynamicDom.currentTemp);
     });
   });
