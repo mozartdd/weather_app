@@ -11,7 +11,7 @@
 [View Live on GitHub Pages](https://mozartdd.github.io/weather_app/)  
 
 ## Screenshot
-![Screenshot From 2025-06-23 17-24-11](https://github.com/user-attachments/assets/d9b5ea40-ee80-4a18-b090-c77c0e5bb404)
+![Screenshot from 2025-07-02 19-33-41](https://github.com/user-attachments/assets/7b58840b-2ed2-450c-b3ed-58742e6e2a38)
 
 ## Few words
 This project was made as part of The Odin project curriculum, [Weather API used in this project](https://www.visualcrossing.com/)  
