@@ -105,6 +105,12 @@ main {
   border-radius: 2rem;
   padding: .8rem;
   margin-top: .5rem;
+  position: relative;
+}
+#wind-icon {
+  position: absolute;
+  left: 11rem;
+  bottom: 2.5rem;
 }
 
 #panel-header {
@@ -115,16 +121,18 @@ main {
 
 #wind {
   font-size: 2rem;
+  min-width: 50%;
+  margin-left: none;
 }
 #temp-today {
   display: flex;
-  /* gap: 2rem; */
   align-items: center;
   justify-content: space-between;
   font-size: 2.5rem;
 }
 #temp-today div:nth-child(2) {
-  margin-left: 150px;
+  /* margin-left: 150px; */
+  min-width: 20%;
   display: flex;
   justify-content: end;
   align-items: center;
